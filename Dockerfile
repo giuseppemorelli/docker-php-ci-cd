@@ -20,6 +20,7 @@ RUN apt-get -y update \
     php7.0-zip \
     php7.0-json \
     php7.0-soap \
+    mysql-client \
     unzip \
     && apt-get clean \
     && rm -rf \

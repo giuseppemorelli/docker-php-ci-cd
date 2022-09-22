@@ -57,4 +57,11 @@ RUN curl -LO https://getcomposer.org/composer.phar \
     && chmod +x ./composer.phar \
     && mv ./composer.phar /usr/local/bin/composer
 
+RUN composer global require maglnet/composer-require-checker \
+    && composer global require icanhazstring/composer-unused
+
+RUN wget https://get.symfony.com/cli/installer -O - | bash && \
+mv /root/.symfony5/bin/symfony /usr/local/bin/symfony && \
+chmod 777 /usr/local/bin/symfony
+
 CMD ["/bin/bash"]

@@ -30,7 +30,6 @@ RUN apt-get update \
     php8.1-xml \
     php8.1-xsl \
     php8.1-zip \
-    php8.1-xdebug \
     php8.1-soap \
     php8.1-bcmath \
     php8.1-imagick	\

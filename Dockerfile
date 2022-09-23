@@ -2,6 +2,8 @@ FROM debian:bullseye
 
 MAINTAINER Giuseppe Morelli <hello@giuseppemorelli.net>
 
+RUN useradd -ms /bin/bash mainuser
+
 RUN apt-get -y update \
     && apt-get -y install \
     apt-transport-https \

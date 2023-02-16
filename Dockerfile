@@ -10,7 +10,14 @@ RUN apt-get -y update \
     ca-certificates \
     wget
 
-RUN apt-get -y dist-upgrade
+RUN apt-get dist-upgrade -y
+
+## install chrome headless
+RUN apt-get install patch libnss3-tools pip -y
+RUN pip install flare-floss
+# RUN cd /tmp/ && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN cd /tmp/ && wget -O google-chrome.deb https://www.slimjet.com/chrome/download-chrome.php?file=files%2F102.0.5005.63%2Fgoogle-chrome-stable_current_amd64.deb
+RUN apt-get install /tmp/google-chrome.deb -y
 
 RUN wget -O "/etc/apt/trusted.gpg.d/php.gpg" "https://packages.sury.org/php/apt.gpg" \
     && sh -c 'echo "deb https://packages.sury.org/php/ bullseye main" > /etc/apt/sources.list.d/php.list'
@@ -43,7 +50,6 @@ RUN apt-get update \
     rsync \
     unzip \
     rsync \
-    wget \
     curl \
     && apt-get clean \
     && rm -rf \

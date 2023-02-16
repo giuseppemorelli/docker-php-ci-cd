@@ -68,4 +68,6 @@ RUN wget https://get.symfony.com/cli/installer -O - | bash && \
 mv /root/.symfony5/bin/symfony /usr/local/bin/symfony && \
 chmod 777 /usr/local/bin/symfony
 
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs
+
 CMD ["/bin/bash"]

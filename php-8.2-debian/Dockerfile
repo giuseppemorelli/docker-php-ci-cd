@@ -10,7 +10,7 @@ RUN apt-get -y update \
     ca-certificates \
     wget
 
-RUN apt-get dist-upgrade -y
+# RUN apt-get dist-upgrade -y
 
 ## install chrome headless
 RUN apt-get install patch libnss3-tools pip -y

@@ -16,3 +16,12 @@ jobs:
         secrets:
             DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
             DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+    build-and-push-docker-image-user:
+        name: "Build 8.2 user on push to docker hub"
+        uses: giuseppemorelli/docker-php-ci-cd/.github/workflows/build_and_push.yml@main
+        with:
+            tagversion: '8.2-user'
+            folder: './php-8.2-user-debian'
+        secrets:
+            DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+            DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}

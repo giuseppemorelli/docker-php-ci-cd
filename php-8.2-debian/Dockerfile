@@ -51,6 +51,7 @@ RUN apt-get update \
     php8.2-dev \
     php8.2-tokenizer \
     php8.2-phpdbg \
+    php8.2-sqlite3 \
     rsync \
     unzip \
     rsync \

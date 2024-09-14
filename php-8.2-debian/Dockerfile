@@ -8,13 +8,18 @@ RUN apt-get -y update \
     && apt-get -y install \
     apt-transport-https \
     ca-certificates \
-    wget
+    wget \
+    curl
 
 # RUN apt-get dist-upgrade -y
 
 ## install chrome headless
 RUN apt-get install patch libnss3-tools pip -y
 RUN pip install flare-floss
+
+RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | tee /etc/apt/trusted.gpg.d/google.asc >/dev/null
+RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | tee /etc/apt/trusted.gpg.d/google.gpg >/dev/null
+
 # RUN cd /tmp/ && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN cd /tmp/ && wget -O google-chrome.deb https://www.slimjet.com/chrome/download-chrome.php?file=files%2F102.0.5005.63%2Fgoogle-chrome-stable_current_amd64.deb
 RUN apt-get install /tmp/google-chrome.deb -y

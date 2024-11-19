@@ -9,7 +9,11 @@ RUN apt-get -y update \
     apt-transport-https \
     ca-certificates \
     wget \
-    curl
+    curl \
+    openssh-client \
+    sudo
+
+RUN eval "$(ssh-agent -s)"
 
 # RUN apt-get dist-upgrade -y
 
